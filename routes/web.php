@@ -19,6 +19,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/bio', [HomeController::class, 'index']);
 Route::get('/biodata', [BiodataController::class, 'ShowBiodata']);
-Route::get('/biod', 'BiodataController@show');
