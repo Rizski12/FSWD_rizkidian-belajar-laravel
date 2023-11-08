@@ -8,6 +8,6 @@ class BiodataController extends Controller
 {
     public function showBiodata()
 {
-    return view('biodata');
+    return view('pages.biodata');
 }
 }
