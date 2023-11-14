@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Products;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
@@ -10,7 +10,7 @@ class CrudProductController extends Controller
 {
     public function index()
     {
-        $products = Product::with('category')->paginate(10);
+        $products = Products::with('category')->paginate(10);
         return view('products.index', compact('products'));
     }
 
@@ -26,24 +26,35 @@ class CrudProductController extends Controller
             'product_name' => 'required',
             'category_id' => 'required',
             'price' => 'required',
-            'product_code' => 'required',
+            'product_code' => 'required|unique:products',
             'unit' => 'required',
             'discount_amount' => 'required',
             'stock' => 'required',
         ]);
 
-        Product::create($request->all());
+        // Cek apakah product_code sudah ada
+        $existingProduct = Products::where('product_code', $request->input('product_code'))->first();
 
-        return redirect()->route('crud.index')->with('success', 'Product created successfully.');
+        if ($existingProduct) {
+            // Menggunakan session untuk menyimpan pesan kesalahan
+            session()->flash('error', 'Failed to create product. Product code already exists.');
+            return redirect()->route('crud.index');
+        }
+
+
+        Products::create($request->all());
+        session()->flash('success', 'Product created successfully.');
+
+        return redirect()->route('crud.index');
     }
 
-    public function edit(Product $product)
+    public function edit(Products $product)
     {
         $categories = ProductCategory::all();
         return view('products.edit', compact('product', 'categories'));
     }
 
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Products $product)
     {
         $request->validate([
             'product_name' => 'required',
@@ -57,13 +68,17 @@ class CrudProductController extends Controller
 
         $product->update($request->all());
 
-        return redirect()->route('crud.index')->with('success', 'Product updated successfully.');
+        session()->flash('success', 'Product updated successfully.');
+
+        return redirect()->route('crud.index');
     }
 
-    public function destroy(Product $product)
+    public function destroy(Products $product)
     {
         $product->delete();
 
-        return redirect()->route('crud.index')->with('success', 'Product deleted successfully.');
+        session()->flash('success', 'Product deleted successfully.');
+
+        return redirect()->route('crud.index');
     }
 }

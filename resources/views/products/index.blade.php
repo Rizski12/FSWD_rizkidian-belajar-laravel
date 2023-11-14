@@ -23,6 +23,34 @@
  <!-- Main content -->
  <section class="content">
  <div class="container">
+    @if(session('success'))
+        <div id="success-alert" class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-check"></i> Success!</h5>
+            {{ session('success') }}
+        </div>
+
+        <script>
+            setTimeout(function(){
+                $('#success-alert').fadeOut('slow');
+            }, 3000);
+        </script>
+    @endif
+
+    @if(session('error'))
+        <div id="danger-alert" class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-check"></i> Failled!</h5>
+            {{ session('error') }}
+        </div>
+
+        <script>
+            setTimeout(function(){
+                $('#danger-alert').fadeOut('slow');
+            }, 3000);
+        </script>
+    @endif
+
     @if (count($products) > 0)
     <div class="card mt-3">
         <div class="card-header">
