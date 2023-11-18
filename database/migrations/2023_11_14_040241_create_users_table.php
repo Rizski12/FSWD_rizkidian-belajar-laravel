@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->foreignId('created_by')->nullable();
             $table->foreignId('updated_by')->nullable();
-            $table->integer('group_id');
+            $table->unsignedBigInteger('group_id')->nullable(); // Kolom dapat bernilai null
             $table->enum('is_active', ['1', '0'])->default('1');
         });
     }

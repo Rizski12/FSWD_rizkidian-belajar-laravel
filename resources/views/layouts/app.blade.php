@@ -10,6 +10,17 @@
 </head>
 <body>
     @yield('content')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+@if($message = Session::get('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: '{{ $message }}'
+        });
+    </script>
+@endif
 </body>
 </html>
