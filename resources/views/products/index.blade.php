@@ -64,6 +64,7 @@
             <thead class="bg-secondary">
                 <tr>
                     <th>Product Code</th>
+                    <th>Image</th>
                     <th>Name Product</th>
                     <th>Category</th>
                     <th>Price</th>
@@ -77,6 +78,9 @@
                 @foreach ($products as $product)
                     <tr>
                         <td>{{ $product->product_code }}</td>
+                        <td>
+                            <img src="{{ asset('images/products/' . $product->image) }}" alt="{{ $product->product_name }} Image" style="max-width: 100px; max-height: 100px;">
+                        </td>
                         <td>{{ $product->product_name }}</td>
                         <td>{{ $product->category->category_name }}</td>
                         <td>Rp {{ number_format($product->price, 0, ',', '.') }}</td>

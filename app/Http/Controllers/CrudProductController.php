@@ -30,6 +30,8 @@ class CrudProductController extends Controller
             'unit' => 'required',
             'discount_amount' => 'required',
             'stock' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Sesuaikan validasi untuk gambar
+
         ]);
 
         // Cek apakah product_code sudah ada
@@ -42,9 +44,15 @@ class CrudProductController extends Controller
         }
 
 
-        Products::create($request->all());
-        session()->flash('success', 'Product created successfully.');
+        $imageName = time() . '.' . $request->image->extension(); // Buat nama unik untuk gambar
+        $request->image->move(public_path('images/products'), $imageName); // Pindahkan file gambar ke folder yang diinginkan
 
+        $requestData = $request->all();
+        $requestData['image'] = $imageName;
+
+        Products::create($requestData);
+        session()->flash('success', 'Product created successfully.');
+        
         return redirect()->route('crud.index');
     }
 
@@ -64,9 +72,27 @@ class CrudProductController extends Controller
             'unit' => 'required',
             'discount_amount' => 'required',
             'stock' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Sesuaikan validasi untuk gambar
+
         ]);
 
-        $product->update($request->all());
+         // Jika ada file gambar yang diunggah
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images/products'), $imageName);
+            // Hapus gambar lama jika ada dan kemudian simpan nama gambar yang baru ke dalam database
+            if ($product->image) {
+                $oldImagePath = public_path('images/products/') . $product->image;
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
+            }
+            $product->image = $imageName;
+        }
+
+        // Update informasi produk
+        $product->update($request->except('image'));
+
 
         session()->flash('success', 'Product updated successfully.');
 

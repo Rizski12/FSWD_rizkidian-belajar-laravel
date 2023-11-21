@@ -28,7 +28,7 @@
             <h2>Edit Product</h2>
         </div>
         <div class="card-body">
-            <form action="{{ route('crud.update', $product->id) }}" method="POST">
+            <form action="{{ route('crud.update', $product->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
         
@@ -74,13 +74,19 @@
                     <label for="stock">Stock:</label>
                     <input type="text" name="stock" id="stock" class="form-control" value="{{ $product->stock }}" required>
                 </div>
-                {{-- <div class="form-group">
+                <div class="form-group">
                     <label for="image">Product Image:</label>
                     <input type="file" name="image" id="image" class="form-control">
-                </div> --}}
+                </div>
+
+                @if($product->image)
+                    <div class="form-group">
+                        <img src="{{ asset('images/products/' . $product->image) }}" alt="{{ $product->product_name }}" class="img-fluid" style="max-width: 100px; max-height: 100px;">
+                    </div>
+                @endif
         
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Update Product</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                     <a href="{{ route('crud.index') }}" class="btn btn-danger">Cancel</a>
                 </div>
             </form>

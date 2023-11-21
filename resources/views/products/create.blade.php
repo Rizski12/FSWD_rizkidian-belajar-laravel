@@ -28,10 +28,9 @@
             <h2>Add Product</h2>
         </div>
         <div class="card-body">
-            <form action="{{ route('crud.store') }}" method="POST">
+            <form action="{{ route('crud.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
             
-                 {{-- Add your form fields based on the Product model --}}
                  <div class="form-group">
                     <label for="product_name">Product Name:</label>
                     <input type="text" name="product_name" id="product_name" class="form-control" required>
@@ -71,10 +70,10 @@
                     <label for="stock">Stock:</label>
                     <input type="text" name="stock" id="stock" class="form-control" required>
                 </div>
-                {{-- <div class="form-group">
-                    <label for="image">Product Image:</label>
-                    <input type="file" name="image" id="image" class="form-control">
-                </div> --}}
+                <div class="form-group">
+                    <label for="image">Product Image</label>
+        <input type="file" name="image" id="image" class="form-control" required>
+                </div>
             
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Add Product</button>
