@@ -1,0 +1,51 @@
+.login{
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to top, #c5c5eb 50%, #6ed1e7 90%) no-repeat;
+}
+
+a {
+    text-decoration: none;
+}
+
+.box-area{
+    width: 930px;
+}
+
+.right-box{
+    padding: 40px 30px 40px 40px;
+}
+
+
+::placeholder{
+    font-size: 16px;
+}
+
+.rounded-4{
+    border-radius: 10px;
+}
+.rounded-5{
+    border-radius: 20px;
+}
+
+
+@media only screen and (max-width: 768px){
+
+    .box-area{
+        margin: 0 10px;
+
+    }
+    .left-box{
+        height: 100px;
+        overflow: hidden;
+    }
+    .right-box{
+        padding: 20px;
+    }
+
+}
+#togglePassword:focus {
+    outline: none;
+}
+#toggleConfirmPassword:focus {
+    outline: none;
+}
