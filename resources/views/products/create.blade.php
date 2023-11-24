@@ -72,8 +72,10 @@
                 </div>
                 <div class="form-group">
                     <label for="image">Product Image</label>
-        <input type="file" name="image" id="image" class="form-control" required>
+                    <input type="file" name="image" id="image" class="form-control" required>
+                    <img id="previewImage" src="#" alt="Preview" style="display: none; max-width: 150px; margin-top: 10px;" />
                 </div>
+        
             
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Add Product</button>

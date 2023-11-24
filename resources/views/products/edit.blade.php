@@ -77,11 +77,12 @@
                 <div class="form-group">
                     <label for="image">Product Image:</label>
                     <input type="file" name="image" id="image" class="form-control">
+                    <img id="previewImage" src="#" alt="Preview" style="display: none; max-width: 200px; margin-top: 10px;" />
                 </div>
 
                 @if($product->image)
-                    <div class="form-group">
-                        <img src="{{ asset('images/products/' . $product->image) }}" alt="{{ $product->product_name }}" class="img-fluid" style="max-width: 100px; max-height: 100px;">
+                    <div class="form-group" id="existingImageContainer">
+                        <img src="{{ asset('images/products/' . $product->image) }}" alt="{{ $product->product_name }}" class="img-fluid" style="max-width: 200px; margin-top: 10px;">
                     </div>
                 @endif
         

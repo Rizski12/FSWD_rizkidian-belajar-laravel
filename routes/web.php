@@ -6,6 +6,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 
+use App\Http\Controllers\API\ProductAPIController;
+
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +49,7 @@ Route::middleware(['auth', 'check.user'])->group(function () {
     Route::get('/biodata', [BiodataController::class, 'showBiodata'])->name('biodata');
 
 });
+
 
 
 
