@@ -16,4 +16,10 @@ class UserGroups extends Model
         'is_active',
         'description',
     ];
+
+        // Definisi relasi dengan Users
+        public function users()
+        {
+            return $this->hasMany(Users::class, 'group_id');
+        }
 }

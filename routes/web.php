@@ -5,8 +5,8 @@ use App\Http\Controllers\CrudProductController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UsersController;
 
-use App\Http\Controllers\API\ProductAPIController;
 
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
@@ -38,14 +38,25 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth', 'check.user'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/crud', [CrudProductController::class, 'index'])->name('crud.index');
     Route::get('/profile', [DashboardController::class, 'profile'])->name('profile');
     Route::get('/products', [ProductController::class, 'products'])->name('products');
+    
+    // CRUD Produk
+    Route::get('/crud', [CrudProductController::class, 'index'])->name('crud.index');
     Route::get('/crud/create', [CrudProductController::class, 'create'])->name('crud.create');
     Route::post('/crud', [CrudProductController::class, 'store'])->name('crud.store');
     Route::get('/crud/{product}/edit', [CrudProductController::class, 'edit'])->name('crud.edit');
     Route::put('/crud/{product}', [CrudProductController::class, 'update'])->name('crud.update');
     Route::delete('/crud/{product}', [CrudProductController::class, 'destroy'])->name('crud.destroy');
+    
+    //CRUD Users
+    Route::get('/users', [UsersController::class, 'index'])->name('users.index');
+    Route::get('/users/create', [UsersController::class, 'create'])->name('users.create');
+    Route::post('/users', [UsersController::class, 'store'])->name('users.store');
+    Route::get('/users/{user}/edit', [UsersController::class, 'edit'])->name('users.edit');
+    Route::put('/users/{user}', [UsersController::class, 'update'])->name('users.update');
+    Route::delete('/users/{user}', [UsersController::class, 'destroy'])->name('users.destroy');
+
     Route::get('/biodata', [BiodataController::class, 'showBiodata'])->name('biodata');
 
 });

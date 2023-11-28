@@ -60,7 +60,7 @@
             </div>
         </div>
         <div class="card-body">
-          <table class="table table-bordered text-center">
+          <table class="table table-bordered text-center" id="example1">
             <thead class="bg-secondary">
                 <tr>
                     <th>Product Code</th>
@@ -102,12 +102,12 @@
         </table>
     </div>
 
-    <div class="card-footer">
+    {{-- <div class="card-footer">
         <div class="d-flex justify-content-between">
             <p>Showing {{ $products->firstItem() }} to {{ $products->lastItem() }} of {{ $products->total() }} products.</p>
             {{ $products->render("pagination::bootstrap-4") }}
         </div>
-    </div>
+    </div> --}}
 </div>
     @else
         <p>No products available.</p>

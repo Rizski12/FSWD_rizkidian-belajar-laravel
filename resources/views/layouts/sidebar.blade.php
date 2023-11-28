@@ -72,6 +72,15 @@
               </a>
             </li>
             <li class="nav-item">
+              <a href="{{ route('users.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                  Users
+                  <i class="fas fa-angle-right right"></i>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="{{ route('logout') }}" onclick="event.preventDefault(); logoutConfirmation();" class="nav-link">
                 <i class="nav-icon 	fas fa-sign-out-alt"></i>
                 <p>

@@ -32,7 +32,6 @@
                 @csrf
                 @method('PUT')
         
-                 {{-- Populate fields with existing data --}}
                  <div class="form-group">
                     <label for="product_name">Product Name:</label>
                     <input type="text" name="product_name" id="product_name" class="form-control" value="{{ $product->product_name }}" required>
@@ -46,7 +45,6 @@
                 <div class="form-group">
                     <label for="category_id">Category:</label>
                     <select name="category_id" id="category_id" class="form-control" required>
-                        {{-- Populate categories dropdown --}}
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}" {{ $product->category_id == $category->id ? 'selected' : '' }}>
                                 {{ $category->category_name }}
