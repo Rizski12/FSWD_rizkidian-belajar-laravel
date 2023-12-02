@@ -49,6 +49,14 @@
                     <input type="text" class="form-control" id="username" name="username" value="{{ $user->username }}" required>
                 </div>
                 <div class="form-group">
+                    <label for="password">Password Baru:</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password baru">
+                </div>
+                <div class="form-group">
+                    <label for="password_confirmation">Konfirmasi Password Baru:</label>
+                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Konfirmasi password baru">
+                </div>
+                <div class="form-group">
                     <label for="group_id">Grup:</label>
                     <select class="form-control" id="group_id" name="group_id" required>
                         @foreach($userGroups as $key => $value)

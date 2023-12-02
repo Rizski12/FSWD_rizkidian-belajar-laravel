@@ -15,6 +15,9 @@
         <div class="col-md-6 right-box">
             <div class="row align-items-center">
                 <div class="header-text mb-4">
+                    <a href="{{ route('landing') }}" class="btn btn-outline-info btn-sm mb-3">
+                        <i class="fas fa-arrow-left me-1"></i> Back to Website
+                    </a>
                     <h2>Hello, Again</h2>
                     <p>We are happy to have you back.</p>
                 </div>

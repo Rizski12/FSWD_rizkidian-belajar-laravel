@@ -19,7 +19,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Jika berhasil login
-            return redirect()->intended('/')->with('auth-success', 'Login berhasil!');
+            return redirect()->intended('/dashboard')->with('auth-success', 'Login berhasil!');
         }
 
         // Jika gagal, redirect ke halaman login dengan pesan error
@@ -33,7 +33,7 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        $userData = $request->only('name', 'email', 'phone_number', 'username', 'password');
+        $userData = $request->only('name', 'email', 'phone_number', 'username', 'password', 'group_id');
         $userData['password'] = Hash::make($userData['password']);
 
         Users::create($userData);

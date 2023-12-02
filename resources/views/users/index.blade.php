@@ -60,7 +60,7 @@
             </div>
         </div>
     <div class="card-body">
-      <table class="table table-bordered text-center" id="example1">
+      <table class="table table-bordered text-center" id="example">
         <thead class="bg-dark">
             <tr>
                 <th>Nama</th>
@@ -95,7 +95,12 @@
         </tbody>
     </table>
  </div>
-
+    <div class="card-footer">
+        <div class="d-flex justify-content-between">
+            <p>Showing {{ $users->firstItem() }} to {{ $users->lastItem() }} of {{ $users->total() }} users.</p>
+            {{ $users->render("pagination::bootstrap-4") }}
+        </div>
+    </div>
 </div>
 @else
     <p>No products available.</p>

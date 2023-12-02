@@ -65,6 +65,17 @@
                             </button>
                         </div>
                     </div>
+                    <div class="input-group mb-2">
+                        <select id="group_id" name="group_id" class="form-select form-control-lg bg-light fs-6" required>
+                            <option value="" selected disabled>Pilih Grup</option>
+                            <option value="1">Super Admin</option>
+                            <option value="2">User</option>
+                            <option value="3">Admin Product</option>
+                        </select>
+                    </div>
+                    @error('group_id')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <div class="input-group mb-2 d-flex justify-content-between">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="formCheck" required>

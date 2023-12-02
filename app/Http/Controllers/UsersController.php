@@ -10,7 +10,7 @@ class UsersController extends Controller
 {
     public function index()
     {
-        $users = Users::with('group')->get();
+        $users = Users::with('group')->paginate(10);
         return view('users.index', compact('users'));
     }
 
@@ -28,9 +28,8 @@ class UsersController extends Controller
             'phone_number' => 'required',
             'username' => 'required|unique:users',
             'password' => 'required|min:8',
-            'group_id' => 'required|exists:user_groups,id', // Validation for group_id
+            'group_id' => 'required|exists:user_groups,id',
             'is_active' => 'required',
-            // Add other validation rules as needed
         ]);
 
         $validatedData['password'] = bcrypt($request->password);
@@ -53,11 +52,14 @@ class UsersController extends Controller
             'email' => 'required|email|unique:users,email,' . $user->id,
             'phone_number' => 'required',
             'username' => 'required|unique:users,username,' . $user->id,
-            'group_id' => 'required|exists:user_groups,id', // Validation for group_id
+            'password' => 'nullable|min:8',
+            'group_id' => 'required|exists:user_groups,id', 
             'is_active' => 'required',
-            // Add other validation rules as needed
         ]);
-
+        if ($request->filled('password')) {
+            $validatedData['password'] = bcrypt($request->password);
+        }
+    
         $user->update($validatedData);
 
         return redirect()->route('users.index')->with('success', 'User updated successfully');

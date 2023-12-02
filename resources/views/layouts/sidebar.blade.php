@@ -15,6 +15,15 @@
         </div>
         <div class="info">
           <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+          @if(Auth::user()->group_id == 1)
+              <small class="text-muted">{{ 'Super Admin' }}</small>
+          @elseif(Auth::user()->group_id == 2)
+              <small class="text-muted">{{ 'Seller' }}</small>
+          @elseif(Auth::user()->group_id == 3)
+              <small class="text-muted">{{ 'Admin Products' }}</small>
+          @else
+              <small class="text-muted">{{ 'User' }}</small>
+          @endif
         </div>
       </div>
 

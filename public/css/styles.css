@@ -8,7 +8,14 @@ body {
 .container-card{
     padding: 10px 150px 10px 150px;
 }
-
+.home {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    align-items: center;
+    gap: 1.5rem;
+  }
 .card-bio{
     box-shadow: 1px 1px 5px rgb(23, 85, 210);
     border-radius: 25px 25px 25px 25px;
