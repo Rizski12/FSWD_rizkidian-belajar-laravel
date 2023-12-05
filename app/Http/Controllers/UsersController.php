@@ -35,6 +35,7 @@ class UsersController extends Controller
         $validatedData['password'] = bcrypt($request->password);
 
         Users::create($validatedData);
+        
 
         return redirect()->route('users.index')->with('success', 'User created successfully');
     }
@@ -52,14 +53,18 @@ class UsersController extends Controller
             'email' => 'required|email|unique:users,email,' . $user->id,
             'phone_number' => 'required',
             'username' => 'required|unique:users,username,' . $user->id,
-            'password' => 'nullable|min:8',
+            'password' => 'required|min:8',
             'group_id' => 'required|exists:user_groups,id', 
             'is_active' => 'required',
         ]);
+        
+        // Cek apakah ada inputan password baru
         if ($request->filled('password')) {
             $validatedData['password'] = bcrypt($request->password);
+        } else {
+            // Jika tidak ada password baru, gunakan password yang ada
+            $validatedData['password'] = $user->password;
         }
-    
         $user->update($validatedData);
 
         return redirect()->route('users.index')->with('success', 'User updated successfully');

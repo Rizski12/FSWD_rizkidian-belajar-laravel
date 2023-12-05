@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>RDP | Sport</title>
+    <title>Rizkidian | Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/v4-shims.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/v4-shims.min.css.map">
@@ -9,7 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/rdp.png') }}">
 
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <style>
     .home {
@@ -20,6 +20,51 @@
     align-items: center;
     gap: 1.5rem;
   }
+  
+  
+  @media (max-width: 768px) {
+  .homeimg {
+    text-align: center; /* Pusatkan gambar */
+  }
+
+  .homeimg img {
+    max-width: 100%; /* Pastikan gambar tidak melebihi lebar container */
+    height: auto; /* Biarkan tinggi gambar disesuaikan */
+  }
+  
+  .container-card {
+    padding: 20px; /* Atur padding agar konten tidak terlalu dekat dengan tepi layar */
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .col-md-4 {
+    text-align: center; /* Pusatkan gambar */
+    margin-bottom: 20px; /* Berikan ruang antara gambar dan informasi */
+  }
+
+  .col-md-4 img {
+    width: 100%; /* Pastikan gambar memenuhi lebar kolom */
+    max-width: 200px; /* Batasi lebar maksimum gambar */
+    height: auto; /* Biarkan tinggi gambar disesuaikan */
+    margin: 0 auto; /* Pusatkan gambar di kolom */
+  }
+
+  .col-md-8 {
+    margin-bottom: 20px; /* Berikan ruang antara kolom informasi */
+  }
+
+  .table {
+    margin-bottom: 20px; /* Berikan ruang antara tabel dan deskripsi */
+  }
+
+  .card-text {
+    margin-bottom: 10px; /* Berikan ruang sebelum deskripsi */
+  }
+}
 
 
   .footer {
