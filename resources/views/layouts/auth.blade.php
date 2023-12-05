@@ -26,7 +26,7 @@
 
   .featured-image img {
     width: 200px; 
-
+  }
   .right-box {
     width: 100%; 
   }
