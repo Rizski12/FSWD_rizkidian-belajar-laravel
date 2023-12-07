@@ -12,7 +12,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <form action="{{ route('landing') }}" method="GET" class="carousel-search-form d-flex ms-auto">
+                <form action="{{ route('toko') }}" method="GET" class="carousel-search-form d-flex ms-auto">
                     <input type="text" name="search" style="width: 350px;" class="form-control me-2" placeholder="Cari Produk Anda!">
                     <button type="submit" class="btn btn-outline-light">Cari</button>
                 </form>
@@ -80,7 +80,7 @@
 
 <div class="container mt-4">
     <h2>Kategori Produk</h2>
-    <form action="{{ route('landing') }}" method="GET" class="mb-3">
+    <form action="{{ route('toko') }}" method="GET" class="mb-3">
         <div class="input-group">
             <select name="category" class="form-select" onchange="this.form.submit()">
                 <option value="">Semua Kategori</option>
@@ -103,7 +103,7 @@
     </div>
     <div class="produk-container mt-2">
         @foreach($featuredProducts as $product)
-                <div class="card card-produk" style="width: 17rem;">
+                <div class="card card-produk mb-3">
                     <span class="badge-produk">{{ $product->discount_amount }} %</span>
                     <img src="{{ asset('images/products/' . $product->image) }}" class="card-img-top" alt="Gambar Produk">
                     <div class="card-body p-2">

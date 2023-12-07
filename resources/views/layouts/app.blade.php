@@ -63,7 +63,6 @@ body {
 .card-produk img {
     max-width: 100%;
     padding: 2px 2px 0 2px;
-    height: 40vh;
     border-bottom: #cbc9c9 solid;
     border-radius: 12px;
 }
@@ -123,6 +122,47 @@ body {
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .card-produk {
+        width: 100%;
+        margin: 20px 0; 
+        box-shadow: 3px 3px 5px rgb(30, 32, 36); 
+        border-radius: 8px; 
+    }
+
+    .card-produk img {
+        height: auto;
+        max-width: 100px;
+        height: 30px; 
+    }
+
+    .badge-produk {
+        font-size: 12px; 
+        padding: 2px 10px; 
+        border-radius: 6px; 
+    }
+
+    .card-title {
+        font-size: 16px; 
+    }
+
+    .harga {
+        font-size: 14px; 
+    }
+
+    .deskripsi,
+    .kategori,
+    .stok {
+        font-size: 12px; 
+    }
+
+    .order-button,
+    .cart-button {
+        padding: 6px 12px; 
+        font-size: 14px;
+    }
 }
 
 </style>

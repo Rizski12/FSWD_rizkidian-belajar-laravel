@@ -47,7 +47,7 @@
                     <div class="mb-2">
                         <label for="password" class="form-label">Password</label>
                         <div class="input-group">
-                            <input id="password" type="password" name="password" class="form-control" required>
+                            <input id="password" type="password" name="password" class="form-control form-control-lg bg-light fs-6" placeholder="Password (Min. 8 characters)" required>
                             <button type="button" class="btn btn-outline-secondary" id="togglePassword">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
                             </button>
@@ -59,7 +59,7 @@
                     <div class="mb-2">
                         <label for="password_confirmation" class="form-label">Confirm Password</label>
                         <div class="input-group">
-                            <input id="password_confirmation" type="password" name="password_confirmation" class="form-control" required>
+                            <input id="password_confirmation" type="password" name="password_confirmation" class="form-control form-control-lg bg-light fs-6" placeholder="Masukkan Password Ulang " required>
                             <button type="button" class="btn btn-outline-secondary" id="toggleConfirmPassword">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
                             </button>
@@ -79,7 +79,7 @@
                     <div class="input-group mb-2 d-flex justify-content-between">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="formCheck" required>
-                            <label for="formCheck" class="form-check-label text-secondary"><small>Agree to terms</small></label>
+                            <label for="formCheck" class="form-check-label text-secondary"><small>Agree to Register</small></label>
                         </div>
                     </div>
                     <div class="input-group mb-3">
