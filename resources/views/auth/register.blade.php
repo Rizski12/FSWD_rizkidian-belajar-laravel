@@ -6,7 +6,7 @@
     <div class="row border rounded-5 p-3 bg-white shadow box-area">
         <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background: #41a4bf;">
             <div class="featured-image mb-3">
-                <img src="../../assets/Images/login-removebg-preview.png" class="img-fluid" style="width: 300px;">
+                <img src="{{ asset('assets/Images/login-removebg-preview.png') }}" class="img-fluid" style="width: 300px;">
             </div>
             <p class="text-white fs-2" style="font-family: 'Courier New', Courier, monospace; font-weight: 600;">Register Your Account</p>
             <small class="text-white text-wrap text-center" style="width: 17rem;font-family: 'Courier New', Courier, monospace;">Join experienced Designers on this platform.</small>
@@ -87,7 +87,7 @@
                     </div>
                 </form>
                 <div class="input-group mb-3">
-                    <button class="btn btn-lg btn-light w-100 fs-6"><img src="../../assets/Images/google.png" style="width:20px" class="me-2"><small>Sign Up with Google</small></button>
+                    <button class="btn btn-lg btn-light w-100 fs-6"><img src="{{ asset('assets/Images/google.png') }}" style="width:20px" class="me-2"><small>Sign Up with Google</small></button>
                 </div>
                 <div class="row">
                     <small>Already have an account? <a href="{{ route('login') }}">Login</a></small>

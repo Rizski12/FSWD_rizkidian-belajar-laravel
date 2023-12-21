@@ -56,6 +56,8 @@
   </section>
   <!--Akhir Home-->
 
+  <hr>
+
   <section class="about" id="about">
     <div class="container-card">
         <div class="card mt-1 mb-3">

@@ -62,6 +62,7 @@ body {
 
 .card-produk img {
     max-width: 100%;
+    height: 50%;
     padding: 2px 2px 0 2px;
     border-bottom: #cbc9c9 solid;
     border-radius: 12px;

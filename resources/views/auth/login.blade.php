@@ -52,7 +52,7 @@
                     </div>
                 </form>
                 <div class="input-group mb-3">
-                    <button class="btn btn-lg btn-light w-100 fs-6"><img src="../assets/Images/google.png" style="width:20px" class="me-2"><small>Sign In with Google</small></button>
+                    <button class="btn btn-lg btn-light w-100 fs-6"><img src="{{ asset('assets/Images/google.png') }}" style="width:20px" class="me-2"><small>Sign In with Google</small></button>
                 </div>
                 <div class="row">
                     <small>Don't have an account? <a href="{{ route('register') }}">Sign Up</a></small>
